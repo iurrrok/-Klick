@@ -1,0 +1,38 @@
+#Импортирование библиотек
+
+import pyautogui #отвечает за АвтоКликер
+import time  #отвечает за Отсчет
+
+#Отсчет(необязателен)
+print("Через 6 секунд запустится АвтоКликер!!!")
+for x in range(6):
+	print(x+1)
+	time.sleep(1)
+else:
+	print("============================")
+	print("АвтоКликер запустился!")
+
+#Цикл
+
+
+def PushClaimBtn():#нажимает кнопку если она зеленая,если нет жмет кнопку назад
+	if pyautogui.pixelMatchesColor(500, 610, (61, 210, 141)) == True:
+		time.sleep(6)
+		pyautogui.click(500, 610)
+		pyautogui.hotkey('ctrl', 'w')
+	else:
+		pyautogui.hotkey('ctrl', 'w')
+	
+
+def multiply(x,y):#открывает нужное окно
+	pyautogui.press('f5')
+	for test in range(x):
+		pyautogui.press('tab',interval=1)
+	pyautogui.press('enter')
+	time.sleep(10)
+	PushClaimBtn()
+for x in range (14,70):
+	multiply(x,1)
+
+print("конец!")
+
